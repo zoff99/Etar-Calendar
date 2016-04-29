@@ -75,9 +75,9 @@ dependencies:
 
     - git submodule init
     - git submodule update
-    - gradle build
+    - gradle build --stacktrace --info
     #- ./gradlew assembleDebug --stacktrace --info --no-daemon
-    #- ls -al app/build/outputs/apk/ ; exit 0
+    - find . -name '*.apk' ; exit 0
     - ls -al ; exit 1
 
 
