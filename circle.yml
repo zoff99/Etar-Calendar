@@ -30,15 +30,10 @@ dependencies:
     - sudo apt-get install telnet > /dev/null 2> /dev/null
     - sudo apt-get install x11-utils > /dev/null 2> /dev/null
     - sudo apt-get install xvkbd > /dev/null 2> /dev/null
-    #- sudo apt-get install gradle-2.10
 
     - gradle -v
     - cd ~ ; wget https://services.gradle.org/distributions/gradle-2.10-bin.zip
     - mkdir ~/g ; cd ~/g ; unzip ~/gradle-2.10-bin.zip
-    - echo $PATH ; exit 0
-    - echo $GRADLE_HOME ; exit 0
-    - ls -al $GRADLE_HOME ; exit 0
-    - cd $GRADLE_HOME ; ls -al ; exit 0
     - gradle -v
 
     - echo y | android update sdk --no-ui --all --filter "tools"
@@ -60,18 +55,6 @@ dependencies:
     - echo y | android update sdk --no-ui --all --filter addon-google_apis-google-23 > /dev/null 2> /dev/null
 
     - pwd ; ls -al
-
-    #- cat gradle/wrapper/gradle-wrapper.properties
-    #- sed -i -e 's#gradle-2.11-bin.zip#gradle-2.2-all.zip#' gradle/wrapper/gradle-wrapper.properties
-    #- sed -i -e 's#gradle-2.2.1-all.zip#gradle-2.10-all.zip#' gradle/wrapper/gradle-wrapper.properties
-    #- cat gradle/wrapper/gradle-wrapper.properties
-
-    - cat app/build.gradle | grep 'minifyEnabled' ; exit 0
-    - cat app/build.gradle | grep 'useCompileDaemon' ; exit 0
-    #- sed -i -e 's#minifyEnabled true#minifyEnabled false#g' app/build.gradle # disable proguard!!
-    #- sed -i -e 's#scalaCompileOptions.useCompileDaemon = true#scalaCompileOptions.useCompileDaemon = false#' app/build.gradle
-    - cat app/build.gradle | grep 'minifyEnabled' ; exit 0
-    - cat app/build.gradle | grep 'useCompileDaemon' ; exit 0
 
     - git submodule init
     - git submodule update
