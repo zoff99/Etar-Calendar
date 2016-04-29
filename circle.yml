@@ -12,6 +12,8 @@ machine:
     ANDROID_SDK: /usr/local/android-sdk-linux/
     _SDK_: /usr/local/android-sdk-linux/
     GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx1000m -XX:+HeapDumpOnOutOfMemoryError"'
+    GRADLE_HOME: ~/g/gradle-2.10
+    PATH: ~/g/gradle-2.10/bin:$PATH
 general:
   artifacts:
     #-./app/build/outputs/logs/
@@ -28,7 +30,15 @@ dependencies:
     - sudo apt-get install telnet > /dev/null 2> /dev/null
     - sudo apt-get install x11-utils > /dev/null 2> /dev/null
     - sudo apt-get install xvkbd > /dev/null 2> /dev/null
-    - sudo apt-get install gradle-2.10
+    #- sudo apt-get install gradle-2.10
+
+    - gradle -v
+    - cd ~ ; wget https://services.gradle.org/distributions/gradle-2.10-bin.zip
+    - mkdir ~/g ; cd ~/g ; unzip ~/gradle-2.10-bin.zip
+    - echo $PATH
+    - echo $GRADLE_HOME
+    - ls -al GRADLE_HOME/
+    - gradle -v
 
     - echo y | android update sdk --no-ui --all --filter "tools"
     - android list sdk --all | grep -i tools
