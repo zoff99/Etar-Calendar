@@ -49,10 +49,10 @@ dependencies:
 
     - pwd ; ls -al
 
-    - cat gradle/wrapper/gradle-wrapper.properties
+    #- cat gradle/wrapper/gradle-wrapper.properties
     #- sed -i -e 's#gradle-2.11-bin.zip#gradle-2.2-all.zip#' gradle/wrapper/gradle-wrapper.properties
-    - sed -i -e 's#gradle-2.2.1-all.zip#gradle-2.10-all.zip#' gradle/wrapper/gradle-wrapper.properties
-    - cat gradle/wrapper/gradle-wrapper.properties
+    #- sed -i -e 's#gradle-2.2.1-all.zip#gradle-2.10-all.zip#' gradle/wrapper/gradle-wrapper.properties
+    #- cat gradle/wrapper/gradle-wrapper.properties
 
     - cat app/build.gradle | grep 'minifyEnabled' ; exit 0
     - cat app/build.gradle | grep 'useCompileDaemon' ; exit 0
@@ -61,8 +61,14 @@ dependencies:
     - cat app/build.gradle | grep 'minifyEnabled' ; exit 0
     - cat app/build.gradle | grep 'useCompileDaemon' ; exit 0
 
-    - ./gradlew assembleDebug --stacktrace --info --no-daemon
-    - ls -al app/build/outputs/apk/ ; exit 0
+    - git submodule init
+    - git submodule update
+    - gradle build
+    #- ./gradlew assembleDebug --stacktrace --info --no-daemon
+    #- ls -al app/build/outputs/apk/ ; exit 0
+    - ls -al ; exit 1
+
+
 
     - zip -d app/build/outputs/apk/app-debug-unaligned.apk META-INF/\*     # remove signature !!
     - cp -av app/build/outputs/apk/app-debug-unaligned.apk ~/app.apk ;
