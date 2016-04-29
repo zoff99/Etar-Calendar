@@ -37,7 +37,8 @@ dependencies:
     - mkdir ~/g ; cd ~/g ; unzip ~/gradle-2.10-bin.zip
     - echo $PATH ; exit 0
     - echo $GRADLE_HOME ; exit 0
-    - ls -al $GRADLE_HOME/ ; exit 0
+    - ls -al $GRADLE_HOME ; exit 0
+    - cd $GRADLE_HOME ; ls -al ; exit 0
     - gradle -v
 
     - echo y | android update sdk --no-ui --all --filter "tools"
