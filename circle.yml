@@ -147,7 +147,7 @@ test:
 
     # - fb-adb shell am force-stop ws.xsoh.etar
 
-    - died_count=`cat $CIRCLE_ARTIFACTS/adb_out.txt|grep 'Process. ws.xsoh.etar, PID.'|wc -l|tr -d ' '` ; if [ $died_count -gt 1 ]; then echo "app crashed"; exit 1; fi
+    - died_count=`cat $CIRCLE_ARTIFACTS/adb_out.txt|grep 'Process. ws.xsoh.etar, PID.'|wc -l|tr -d ' '` ; if [ $died_count -gt 0 ]; then echo "app crashed"; exit 1; fi
 
     - import -window root $CIRCLE_ARTIFACTS/capture002.png # get proof that the app is running
 
