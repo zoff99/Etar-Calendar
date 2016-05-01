@@ -125,8 +125,8 @@ test:
     - #xdotool search --name "appemu" key "F2"
     - #xdotool search --name "appemu" key "Return"
     - xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; cat /tmp/bb.txt
-    - xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; wid=`cat /tmp/bb.txt|tr -d " "`; xdotool key --window $wid "F2"
-    - xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; wid=`cat /tmp/bb.txt|tr -d " "`; xdotool key --window $wid "Return"
+    #- xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; wid=`cat /tmp/bb.txt|tr -d " "`; xdotool key --window $wid "F2"
+    #- xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; wid=`cat /tmp/bb.txt|tr -d " "`; xdotool key --window $wid "Return"
 
     - sleep 10
     - import -window root $CIRCLE_ARTIFACTS/capture001.png
