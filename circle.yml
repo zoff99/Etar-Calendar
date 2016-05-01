@@ -107,14 +107,14 @@ test:
 
     - xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int
     #- for i in `xdotool search --name "DDMS"`; do xdotool windowfocus "$i" ; xdotool key "Return" ; sleep 1 ; done ; exit 0
-    - sleep 21
+    - sleep 210
     - xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int
 
-    - xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; cat /tmp/bb.txt
-    - xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; wid=`cat /tmp/bb.txt|tr -d " "`; xdotool key --window $wid "F2"
-    - xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; wid=`cat /tmp/bb.txt|tr -d " "`; xdotool key --window $wid "Return"
+    #- xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; cat /tmp/bb.txt
+    #- xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; wid=`cat /tmp/bb.txt|tr -d " "`; xdotool key --window $wid "F2"
+    #- xdotool search --class ''|xargs -L1 xdotool getwindowname|grep -v '^$'; xwininfo -root -tree -int > /tmp/aa.txt ; cat /tmp/aa.txt|grep 'appemu' | awk '{print $1}' > /tmp/bb.txt ; wid=`cat /tmp/bb.txt|tr -d " "`; xdotool key --window $wid "Return"
 
-    - telnet localhost 5554 event send EV_KEY:KEY_MENU:1 EV_KEY:KEY_MENU:0 quit
+    - adb shell input keyevent 82
 
     - sleep 10
     - import -window root $CIRCLE_ARTIFACTS/capture_emulator_running.png
