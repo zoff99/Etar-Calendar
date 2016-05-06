@@ -2,11 +2,11 @@ machine:
   timezone:
     Europe/Vienna
   environment:
-    ZEMU_: "appemu23"
-    EMU_: "appemu21"
+    EMU_: "appemu23"
+    YEMU_: "appemu21"
     XEMU_: "appemu10"
-    Zsdpath: "/sdcard"
-    sdpath: "/storage/sdcard"
+    sdpath: "/sdcard"
+    Ysdpath: "/storage/sdcard"
     Xsdpath: "/mnt/sdcard"
     ANDROID_HOME: /usr/local/android-sdk-linux
     ANDROID_SDK: /usr/local/android-sdk-linux/
@@ -14,9 +14,6 @@ machine:
     GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx1000m -XX:+HeapDumpOnOutOfMemoryError"'
     GRADLE_HOME: ~/g/gradle-2.10
     PATH: ~/g/gradle-2.10/bin:$PATH
-general:
-  artifacts:
-    #-./app/build/outputs/logs/
 dependencies:
   cache_directories:
     - ~/.android
