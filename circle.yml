@@ -62,7 +62,7 @@ dependencies:
     - find . -name '*.apk' ; exit 0
 
     - mkdir -p app/build/outputs/apk/
-    - cp -v ./build/outputs/apk/*-unaligned.apk app/build/outputs/apk/app-debug-unaligned.apk
+    - cp -v `find ./build/outputs/apk/ -name '*.apk' 2> /dev/null | tail -1 2> /dev/null` app/build/outputs/apk/app-debug-unaligned.apk
 
     - zip -d app/build/outputs/apk/app-debug-unaligned.apk META-INF/\*     # remove signature !!
     - cp -av app/build/outputs/apk/app-debug-unaligned.apk ~/app.apk ;
