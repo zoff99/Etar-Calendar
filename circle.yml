@@ -64,7 +64,7 @@ dependencies:
     - mkdir -p app/build/outputs/apk/
     - cp -v `find ./build/outputs/apk/ -name '*.apk' 2> /dev/null | tail -1 2> /dev/null` app/build/outputs/apk/app-debug-unaligned.apk
 
-    - zip -d app/build/outputs/apk/app-debug-unaligned.apk META-INF/\*     # remove signature !!
+    - zip -d app/build/outputs/apk/app-debug-unaligned.apk META-INF/\* ; exit 0  # remove signature (only if it's unsigned) !!
     - cp -av app/build/outputs/apk/app-debug-unaligned.apk ~/app.apk ;
       cd ~/ ;
       echo xxxxxxrm -f ~/.android/debug.keystore ;
